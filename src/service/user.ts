@@ -1,9 +1,10 @@
-import { injectable } from "inversify";
 import { User } from "../model/user";
 import { DatabaseProvider } from "../util/database";
+import { provide } from "inversify-binding-decorators";
+import { TYPES } from "../constant/types";
 
 
-@injectable()
+@provide(TYPES.UserService)
 export class UserService {
 
   public async create(user: User): Promise<User> {
@@ -22,7 +23,7 @@ export class UserService {
   }
 
 
-  public async getUser(id: number): Promise<User> {
+  public async getById(id: number): Promise<User> {
     const connection  =  await DatabaseProvider.getConnection();
     return await connection.getRepository(User).findOne(id);
   }

@@ -1,3 +1,5 @@
 export const TAGS = {
-    PingController: "PingController"
+    PingController: "PingController",
+    UserController: "UserController",
+    OrderController: "OrderController"
 };

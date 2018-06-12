@@ -32,7 +32,7 @@ export class ServerBase {
     app.use(restify.plugins.acceptParser(app.acceptable));
     app.use(restify.plugins.authorizationParser());
     app.use(restify.pre.userAgentConnection());
-    app.use(morgan("dev"));
+    app.use(morgan("combined"));
     app.use(helmet());
 
     // process exceptions

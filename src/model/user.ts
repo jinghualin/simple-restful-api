@@ -8,14 +8,19 @@ export class User extends BaseEntity {
     public id: number;
 
     @Column()
+    public username: string;
+
+    @Column({nullable: true})
     public firstName: string;
 
-    @Column()
+    @Column({nullable: true})
     public lastName: string;
 
-    @Column()
+    @Column({nullable: true})
     public age: number;
 
-    @OneToMany(type => Order, order => order.user)
+    @OneToMany(type => Order, order => order.user, {
+        cascade: true
+    })
     public orders: Order[];
 }

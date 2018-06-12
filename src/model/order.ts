@@ -8,11 +8,11 @@ export class Order extends BaseEntity {
     @PrimaryGeneratedColumn()
     public id: number;
 
-    @Column()
-    public rentTime: Date;
+    // @Column()
+    // public rentTime: Date;
 
-    @Column()
-    public returnTime: Date;
+    // @Column()
+    // public returnTime: Date;
 
     @Column()
     public totalPrise: number;

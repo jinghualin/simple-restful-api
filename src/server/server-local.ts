@@ -1,6 +1,6 @@
 import { ServerBase } from "./server-base";
 import { InversifyRestifyServer } from "inversify-restify-utils";
-import container from "../ioc/ioc";
+import { container } from "../ioc/ioc";
 import * as restify from "restify";
 import { DatabaseProvider } from "../util/database";
 
