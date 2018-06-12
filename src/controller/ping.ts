@@ -1,6 +1,7 @@
 import { Request, Response, Next } from "restify";
 import { Controller, interfaces, Get, TYPE } from "inversify-restify-utils";
 import { injectable } from "inversify";
+import { provide } from "inversify-binding-decorators";
 
 @Controller("/ping/:id")
 @injectable()

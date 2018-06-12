@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToOne, JoinColumn } from "typeorm";
 import { User } from "./user";
 import { Movie } from "./movie";
 
@@ -17,9 +17,12 @@ export class Order extends BaseEntity {
     @Column()
     public totalPrise: number;
 
-    @ManyToOne(type => User, user => user.orders)
+    @ManyToOne(type => User, user => user.orders, {
+        cascade: true
+    })
     public user: User;
 
-    @OneToOne(type => Movie, movie => movie.id)
+    @ManyToOne(type => Movie)
+    @JoinColumn()
     public movie: Movie;
 }

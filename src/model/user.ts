@@ -19,8 +19,6 @@ export class User extends BaseEntity {
     @Column({nullable: true})
     public age: number;
 
-    @OneToMany(type => Order, order => order.user, {
-        cascade: true
-    })
+    @OneToMany(type => Order, order => order.user)
     public orders: Order[];
 }

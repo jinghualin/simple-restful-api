@@ -19,18 +19,18 @@ export class OrderService {
         });
     }
 
-    public async create(order: Order): Promise<Order> {
+    public async create(moviename: string, userId: number, order: Order): Promise<Order> {
         const connection = await DatabaseProvider.getConnection();
         const newOrder = new Order();
         newOrder.totalPrise = order.totalPrise;
-        const user = await connection.getRepository(User).findOne(order.user.id);
-        const movie = await connection.getRepository(Movie).findOne(order.movie);
+        const user = await connection.getRepository(User).findOne(userId);
+        const movie = await connection.getRepository(Movie).findOne({"name": moviename});
         if (!user || !movie) {
             return;
         }
         newOrder.user = user;
         newOrder.movie = movie;
-        return await connection.getRepository(Order).save(newOrder);
+        return await connection.getRepository(Order).findOne(newOrder);
     }
 
     public async getById(id: number): Promise<Order> {

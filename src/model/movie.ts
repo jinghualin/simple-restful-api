@@ -12,19 +12,15 @@ export class Movie extends BaseEntity {
     })
     public name: string;
 
-    @Column()
+    @Column({nullable: true})
     public description: string;
 
-    @Column()
+    @Column({nullable: true})
     public filename: string;
 
-    @Column()
+    @Column({nullable:true})
     public views: number;
 
-    @Column()
+    @Column({nullable: true})
     public isPublished: boolean;
-
-    @OneToOne( type => Order, order => order.movie )
-    @JoinColumn()
-    public movie: Movie;
 }

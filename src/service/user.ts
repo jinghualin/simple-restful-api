@@ -9,9 +9,11 @@ export class UserService {
 
   public async create(user: User): Promise<User> {
     const newUser = new User();
-    newUser.firstName = user.firstName;
-    newUser.lastName = user.lastName;
-    newUser.age = user.age;
+    // newUser.firstName = user.firstName;
+    // newUser.lastName = user.lastName;
+    // newUser.age = user.age;
+
+    newUser.username = user.username;
 
     const connection = await DatabaseProvider.getConnection();
     return await connection.getRepository(User).save(newUser);
@@ -19,13 +21,13 @@ export class UserService {
 
   public async list(): Promise<User[]> {
     const connection  =  await DatabaseProvider.getConnection();
-    return await connection.getRepository(User).find();
+    return await connection.getRepository(User).find({relations: ["orders"]});
   }
 
 
   public async getById(id: number): Promise<User> {
     const connection  =  await DatabaseProvider.getConnection();
-    return await connection.getRepository(User).findOne(id);
+    return await connection.getRepository(User).findOne(id, {relations: ["orders"]});
   }
 
   public async update(user: User): Promise<User> {

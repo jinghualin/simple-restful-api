@@ -17,7 +17,7 @@ export class OrderController implements interfaces.Controller {
 
     @Post("/order")
     private async create(req: Request, res: Response ): Promise<void> {
-        res.send(await this.orderService.create(req.body));
+        res.send(await this.orderService.create(req.query.moviename, req.params.id, req.body));
     }
 
     @Get("/orders")
