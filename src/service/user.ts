@@ -21,13 +21,13 @@ export class UserService {
 
   public async list(): Promise<User[]> {
     const connection  =  await DatabaseProvider.getConnection();
-    return await connection.getRepository(User).find({relations: ["orders"]});
+    return await connection.getRepository(User).find({relations: ["orders", "orders.movie"]});
   }
 
 
   public async getById(id: number): Promise<User> {
     const connection  =  await DatabaseProvider.getConnection();
-    return await connection.getRepository(User).findOne(id, {relations: ["orders"]});
+    return await connection.getRepository(User).findOne(id, {relations: ["orders", "orders.movie"]});
   }
 
   public async update(user: User): Promise<User> {
