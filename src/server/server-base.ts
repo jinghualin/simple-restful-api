@@ -1,6 +1,7 @@
 import * as corsMiddleware from "restify-cors-middleware";
 import * as restify from "restify";
 import * as morgan from "morgan";
+import * as helmet from "helmet";
 
 export class ServerBase {
   public app: restify.Server;
@@ -32,6 +33,7 @@ export class ServerBase {
     app.use(restify.plugins.authorizationParser());
     app.use(restify.pre.userAgentConnection());
     app.use(morgan("dev"));
+    app.use(helmet());
 
     // process exceptions
     app.on("uncaughtException", function(request, response, route, error) {

@@ -12,13 +12,13 @@ export class Movie extends BaseEntity {
     })
     public name: string;
 
-    @Column("text")
+    @Column()
     public description: string;
 
     @Column()
     public filename: string;
 
-    @Column("double")
+    @Column()
     public views: number;
 
     @Column()

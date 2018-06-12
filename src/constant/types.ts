@@ -1,3 +1,4 @@
 export const TYPES = {
-    UserService: Symbol("UserService")
+    UserService: Symbol("UserService"),
+    OrderService: Symbol("OrderService"),
 };

@@ -4,7 +4,7 @@
     "port": 5432,
     "username": "test",
     "password": "test",
-    "database": "test",
+    "database": "moviestore",
     "synchronize": true,
     "logging": false,
     "entities": [

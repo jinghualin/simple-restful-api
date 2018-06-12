@@ -1,4 +1,9 @@
+
+
 import { Connection, createConnection } from "typeorm";
+import { Order } from "../model/order";
+import { Movie } from "../model/movie";
+import { User } from "../model/user";
 
 
 export interface DatabaseConfiguration {
@@ -35,9 +40,11 @@ export class DatabaseProvider {
                 ssl
             },
             entities: [
-                __dirname = "/src/model/*.ts"
+                User,
+                Order,
+                Movie
             ],
-            autoSchemaSync: true
+            synchronize: true
         } as any); // as any to prevent complaining about the object does not fit to MongoConfiguration, which we won't use here
         return DatabaseProvider.connection;
     }

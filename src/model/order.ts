@@ -7,7 +7,6 @@ export class Order extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     public id: number;
-   
 
     @Column()
     public rentTime: Date;
