@@ -18,7 +18,7 @@ export class Movie extends BaseEntity {
     @Column({nullable: true})
     public filename: string;
 
-    @Column({nullable:true})
+    @Column({nullable: true})
     public views: number;
 
     @Column({nullable: true})

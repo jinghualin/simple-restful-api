@@ -22,7 +22,7 @@ export class ServerBase {
     const cors = corsMiddleware({
       preflightMaxAge: 5,
       origins: ["*"],
-      allowHeaders: ["API-TOKEN"],
+      allowHeaders: ["Content-Type", "Content-Range", "Content-Disposition"],
       exposeHeaders: ["API-TOKEN-EXPIRY"]
     });
     app.pre(cors.preflight);
